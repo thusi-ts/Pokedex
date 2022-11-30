@@ -31,6 +31,7 @@ namespace Pokedex
 
             services.AddDbContext<pokeDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IPokedexRepository, PokedexRepository>();
+            services.AddScoped<IRabitMQPokedexProducer, RabitMQPokedexProducer>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
